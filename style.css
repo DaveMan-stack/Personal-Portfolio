@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+:root {
+    --text-color: #707070;
+    --text-color-two: #FF7700;
+    --text-color-three: #FFFFFF;
+    --bg-color-one: #000000;
+    --bg-color-two: #010021;
+    --L: var(--l);
+    /*--font-sm: 1rem;
+    --font-rg: 1.5rem;
+    --font-md: 1.8rem;
+    --font-lg: 2.5rem;
+    --font-xl: 3rem;
+
+    --mb-3: 3rem;
+    --mb-5: 5rem;*/
+}
+
+@keyframes ease-in-emoji {
+    0% {
+        font-size: 0;
+    }
+
+    50% {
+        font-size: var(--font-rg);
+    }
+
+    100% {
+        font-size: var(--font-rg)
+    }
+
+}
+
+@keyframes love {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 100px;
+
+    }
+
+    100% {
+        width: 100px;
+        overflow: visible
+    }
+
+}
+
+@keyframes show-in-out {
+    0% {
+        
+        opacity: 0;
+    }
+
+    20% {
+        height: 100px;
+        width: 100%;
+        opacity: 1;
+        overflow: hidden;
+    }
+
+    80% {
+        opacity: 0;
+       
+    }
+
+    100% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+}
+
+@keyframes show-in {
+    0% {
+        opacity: 0;
+        margin-left: 20px;
+        height: 0;
+    }
+
+    50% {
+        margin-left: 0;
+        opacity: 1;
+        display: block;
+        height: 135px;
+    }
+
+    
+}
+
+@keyframes animateRadius {
+    0%, 100% {
+        border-top-left-radius: 80px 80px;
+        border-top-right-radius: 50px 80px;
+        border-bottom-left-radius: 60px 80px;
+        border-bottom-right-radius: 30px 20px;
+        
+    }
+
+    50% {
+        border-top-left-radius: 50px 80px;
+        border-top-right-radius: 80px 80px;
+        border-bottom-left-radius: 30px 20px;
+        border-bottom-right-radius: 60px 80px;
+    }
+
+    /*25% {
+        border-bottom-right-radius: 80px;
+    }
+
+
+    50% {
+        border-top-right-radius: 100px;
+    }
+
+    75% {
+        border-top-left-radius: 100px;
+    }*/
+    
+
+
+}
+
+@keyframes show-in-img {
+    0%{
+        opacity: 0;
+        margin-top: 70px;
+
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+
+/* Change theme */
+
+body .light-theme-btn {
+    display: none;
+}
+
+body.dark .dark-theme-btn {
+    display: none;
+}
+
+body.dark .light-theme-btn {
+    display: block;
+}
+
+body.dark {
+    --bg-color-one: #E4E2D9;
+    --bg-color-two: #ffffff;
+    --text-color-three: #000;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    /*padding: 20px;*/
+    background: linear-gradient(65deg, var(--bg-color-one), var(--bg-color-two));/**/
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: var(--font-rg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+}
+
+h1 {
+    /*font-size: var(--font-rg);
+    text-transform: uppercase;*/
+    color: var(--text-color-two);
+    /*float: right;
+    margin-bottom: 20px;*/
+}
+
+/*header {
+    margin-bottom: var(--mb-3);
+}
+
+main {
+    clear: both;
+    
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+}
+*/
+i {
+    /*font-size: var(--font-md);*/
+    color: var(--text-color-three);
+}
+
+h3 {
+    color: var(--text-color-three);
+    /*font-size: var(--font-md);*/
+}
+
+button.toggle-theme-btn {
+    /*font-size: var(--font-xl);*/
+    color: #fff;
+}
+
+/* Hero Section */
+
+.hero-section {
+    /*margin-inline: 20px;
+    margin-bottom: 20px;
+    height:200px;*/
+    display: flex;
+    justify-content: space-between;
+    /*margin-bottom: var(--mb-4);*/
+    /*max-height: 400px;*/
+}
+
+.hero-section h2.first {
+    width: 50%;
+    white-space: nowrap;
+    animation: show-in-out 5s linear 0s;
+    animation-fill-mode: forwards;
+    
+}
+
+.hero-section h2.last {
+    max-width: 350px;
+    animation: show-in 4s linear;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+    
+}
+
+.hero-section > span {
+    display: block;
+    /*margin-bottom: 5px;*/
+}
+
+.hero-section .wave-emoji {
+    display: inline-block;
+    font-size: 0;
+    animation: ease-in-emoji .45s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.hero-section .love {
+    color: var(--text-color-two);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /*margin-bottom: -8px;*/
+}
+
+.hero-section .love {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    animation: love 2s linear alternate infinite;
+    animation-fill-mode: forwards;
+
+}
+
+/* this a reusable style which means different part of my app are using it */
+.change-stack {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /*font-size: var(--font-rg);*/
+    color: var(--text-color-two);
+    animation: love 2s linear alternate infinite;
+
+
+    /*border: 1px solid var(--text-color-three);*/
+    /*margin-bottom: -4px;*/
+    
+}
+
+.profile-img-container {
+    /*width: 180px;
+    height: 180px;*/
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    background: var(--text-color);/*background: linear-gradient(65deg, var(--bg-color-one), var(--bg-color-two));*/
+
+    border-top-left-radius: 50px 50px;
+    border-top-right-radius: 40px 60px;
+    border-bottom-left-radius: 60px 80px;
+    border-bottom-right-radius: 30px 20px;
+
+    animation: animateRadius 3s alternate ease-in infinite;
+}
+
+.profile-img {
+    /*width: 200px;
+    height: 200px;*/
+    object-fit: contain;
+    
+}
+
+
+/* Projects section */
+
+.projects-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    /*margin-bottom: var(--mb-5);*/
+}
+
+.projects-container .wrapper{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.projects-container > h2 {
+    color: var(--text-color-two);
+    text-transform: uppercase;
+    /*font-size: var(--font-rg);
+    margin-block: 15px;*/
+    position: relative;
+
+}
+
+.projects-container > h2::before, 
+.projects-container > h2::after {
+    content: ' | '; 
+    /*font-size: var(--font-md)*/
+}
+
+
+
+/* Get to know me section */
+
+.know-me h2 {
+    color: var(--text-color-two);
+    
+}
+
+/*socials */
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-inline: 15px;
+    padding-block: 5px;
+}
+
+.socials a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: var(--text-color-two);
+}
+
+.socials i {
+
+    color: #fff;
+}
+
+/* Coding journey */
+
+.coding-journey h2 {
+
+}
+
+.first-letter.para-one::before {
+    content: 'D';
+    position: absolute;
+    left: 0;
+    font-size: 60px;
+    margin-left: -35px;
+    text-transform: uppercase;
+    color: var(--text-color-two)
+}
