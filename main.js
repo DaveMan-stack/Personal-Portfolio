@@ -12,11 +12,9 @@ const selectElements = (selector) => {
 
 let stacks = selectElements('.change-stack');
 let counter = 0;
-console.log(stacks)
 
-function handleStack(data) {
-    console.log(counter)
-    
+
+function handleStack(data) {    
     if (counter === 4) {
         counter = 0;
     }
@@ -42,11 +40,11 @@ let interval = setInterval(() => {
 const toggleThemeBtn = selectElement('.toggle-theme-btn')
 toggleThemeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark');
-    console.log(document.body.classList)
+
 })
 
 /* On hover over projects container */
-const projectContainer = selectElement('.project');
+/*const projectContainer = selectElement('.project');
 projectContainer.addEventListener('mouseover', () => {
     projectContainer.classList.add('hovering')
 
@@ -55,4 +53,134 @@ projectContainer.addEventListener('mouseover', () => {
 projectContainer.addEventListener('mouseout', () => {
     projectContainer.classList.remove('hovering')
 
+})*/
+
+/* Making the essay section more functional */
+
+const readMore = () => {
+    const paragraphs = selectElements('.d-essay p')
+    const readMoreBtn = selectElement('.read-more')
+    let increment = 2;
+    let counter = 0;
+    paragraphs.forEach((paragraph, idx) => {
+        paragraph.classList.add('hide-text');
+        if(idx <= 1) {
+            paragraph.classList.remove('hide-text')
+        }
+        
+    })
+
+    readMoreBtn.addEventListener('click', (e) => {
+
+        switch (increment) {
+            case 2:
+                paragraphs[increment].classList.remove('hide-text')
+                increment++
+                break;
+            case 3:
+                paragraphs[increment].classList.remove('hide-text')
+                increment++
+                break;
+            case 4:
+                paragraphs[increment].classList.remove('hide-text')
+                increment++
+                break;
+            case 5:
+                paragraphs[increment].classList.remove('hide-text')
+                increment++
+                break;
+            case 6:
+                paragraphs[increment].classList.remove('hide-text')
+                increment++
+                break;
+            case 7:
+                increment = 2;
+                paragraphs.forEach((paragraph, idx) => {
+                    paragraph.classList.add('hide-text');
+                    if(idx <= 1) {
+                        paragraph.classList.remove('hide-text')
+                    }
+                    
+                })
+                break;
+            default:
+                break;
+        }
+        
+        
+    })
+
+
+}
+readMore();
+
+
+/*creating our beautiful slides */
+
+const slidedivs = selectElements('.slides div');
+slidedivs[0].classList.add('extend-width')
+slidedivs[0].classList.add('on-hover-slide')
+slidedivs.forEach((eachDiv, idx) => {
+    eachDiv.addEventListener('click', () => {
+
+        slidedivs.forEach((secondDiv, indx) => {
+            if (indx !== idx) {
+
+                secondDiv.classList.remove('extend-width')
+            }
+            if (indx === idx) {
+                secondDiv.classList.add('extend-width');
+                eachDiv.classList.add('on-hover-slide')
+                
+
+            }
+        })
+    })
+    eachDiv.addEventListener('mouseover', () => {
+        if (eachDiv.classList.contains('extend-width')) {
+            eachDiv.classList.add('on-hover-slide')
+
+        }
+    })
+
+
+    eachDiv.addEventListener('mouseout', () => {
+        if (eachDiv.classList.contains('extend-width')) {
+            eachDiv.classList.remove('on-hover-slide')
+
+        }
+    })
+
 })
+
+const projectText = selectElement('.projects h2').innerText;
+console.log(projectText)
+console.log(projectText.split(''))
+
+
+const makeTextVertical = (selector) => {
+    const texts = selectElements(selector);
+    texts.forEach(textEl => {
+        let text = textEl.innerText;
+        textEl.innerText = ''
+        textEl.classList.add('flex')
+        textEl.classList.add('flex-col')
+
+
+        text.split('').forEach(letter => {
+            let span = document.createElement('span');
+            span.innerText = letter
+            textEl.innerHTML += span.outerHTML
+            console.log(span.outerHTML)
+        })
+    })
+    
+}
+
+makeTextVertical('.projects h2')
+
+console.log(screenX)
+
+/*document.body.addEventListener('mouseover', () => {
+    console.log(scrollbars)
+})*/
