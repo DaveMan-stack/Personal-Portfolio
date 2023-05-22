@@ -71,7 +71,7 @@ const readMore = () => {
     })
 
     readMoreBtn.addEventListener('click', (e) => {
-
+        readMoreBtn.innerText = 'Read more'
         switch (increment) {
             case 2:
                 paragraphs[increment].classList.remove('hide-text')
@@ -104,6 +104,7 @@ const readMore = () => {
                 })
                 break;
             default:
+                
                 break;
         }
         
