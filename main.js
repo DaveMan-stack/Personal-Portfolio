@@ -184,3 +184,15 @@ console.log(screenX)
 /*document.body.addEventListener('mouseover', () => {
     console.log(scrollbars)
 })*/
+
+
+/* Socials: making it interactive */
+const socialsContainer = selectElement('.socials');
+const showOrHideSocialBtn = selectElement('.show-or-hide-socials-btn');
+showOrHideSocialBtn.addEventListener('click', () => {
+    socialsContainer.classList.add('show-or-hide-socials')
+    setTimeout(() => {
+        socialsContainer.classList.remove('show-or-hide-socials')
+
+    }, 2000)
+})

@@ -560,6 +560,10 @@ video {
   margin-bottom: -0.25rem;
 }
 
+.-ml-2 {
+  margin-left: -0.5rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -816,11 +820,6 @@ video {
   line-height: 1;
 }
 
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1061,12 +1060,12 @@ h1 {
 }
 
 p::-moz-selection {
-  background-color: var(--text-color-two);
+  background-color: var(--bg-color-two);
   color: var(--text-color-three)
 }
 
 p::selection {
-  background-color: var(--text-color-two);
+  background-color: var(--bg-color-two);
   color: var(--text-color-three)
 }
 
@@ -1228,25 +1227,79 @@ button.toggle-theme-btn {
 .socials {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  bottom: 0;
-  right: 0;
-  padding-inline: 15px;
+  bottom: 2%;
+  right: 2%;
+  height: 60px;
+  width: 40px;
   padding-block: 5px;
+  transition: height .25s linear, gap .25s linear;
 }
 
 .socials a {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
-  /*background-color: var(--text-color-two);*/
 }
+
+.socials a:nth-of-type(1) {
+  margin-top: -20px;
+}
+
+.socials a:nth-of-type(2) {
+  opacity: .4;
+}
+
+.socials a:nth-of-type(3) {
+  margin-bottom: -20px;
+  opacity: .4
+}
+
+.show-or-hide-socials-btn {
+  position: absolute;
+  inset: 0;
+  background-color: var(--text-color-two);
+  z-index: 99;
+  opacity: .2;
+  border-radius: 25%;
+}
+
+.show-or-hide-socials.socials {
+  height: 130px;
+  gap: 8;
+}
+
+.show-or-hide-socials a {
+  opacity: 1!important;
+  position: relative;
+  width: 35px;
+  height: 35px
+}
+
+.show-or-hide-socials .show-or-hide-socials-btn {
+  z-index: -1;
+}
+
+/*.socials a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    /*background-color: var(--text-color-two);*/
+
+/*}*/
 
 .socials i {
   color: #fff;
@@ -1386,7 +1439,7 @@ button.toggle-theme-btn {
 
 .slides div.on-hover-slide img{
   transform: scale(1);
-  opacity: .5;
+  opacity: .7;
 }
 
 .slides div a {
@@ -1438,6 +1491,10 @@ button.toggle-theme-btn {
 
 .visited\:text-Black:visited {
   color: rgb(0 0 0 );
+}
+
+.visited\:text-White:visited {
+  color: rgb(255 255 255 );
 }
 
 .hover\:cursor-pointer:hover {
@@ -1566,12 +1623,12 @@ button.toggle-theme-btn {
     width: 80%;
   }
 
-  .md\:max-w-lg {
-    max-width: 32rem;
-  }
-
   .md\:max-w-sm {
     max-width: 24rem;
+  }
+
+  .md\:max-w-xl {
+    max-width: 36rem;
   }
 
   .md\:flex-row {

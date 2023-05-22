@@ -187,7 +187,7 @@ h1 {
 }
 
 p::selection {
-    background-color: var(--text-color-two);
+    background-color: var(--bg-color-two);
     color: var(--text-color-three)
 }
 
@@ -366,15 +366,70 @@ button.toggle-theme-btn {
 .socials {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    bottom: 0;
-    right: 0;
-    padding-inline: 15px;
+    bottom: 2%;
+    right: 2%;
+    height: 60px;
+    width: 40px;
     padding-block: 5px;
+    transition: height .25s linear, gap .25s linear;
 }
 
 .socials a {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.socials a:nth-of-type(1) {
+    margin-top: -20px;
+    
+}
+
+.socials a:nth-of-type(2) {
+    opacity: .4;
+}
+
+.socials a:nth-of-type(3) {
+    margin-bottom: -20px;
+    opacity: .4
+}
+
+.show-or-hide-socials-btn {
+    position: absolute;
+    inset: 0;
+    background-color: var(--text-color-two);
+    z-index: 99;
+    opacity: .2;
+    border-radius: 25%;
+}
+
+.show-or-hide-socials.socials {
+    height: 130px;
+    gap: 8;
+}
+
+.show-or-hide-socials a {
+    opacity: 1!important;
+    position: relative;
+    width: 35px;
+    height: 35px
+}
+
+.show-or-hide-socials .show-or-hide-socials-btn {
+    z-index: -1;
+}
+
+
+/*.socials a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -384,7 +439,7 @@ button.toggle-theme-btn {
     height: 40px;
     border-radius: 100%;
     /*background-color: var(--text-color-two);*/
-}
+/*}*/
 
 .socials i {
 
@@ -523,7 +578,7 @@ button.toggle-theme-btn {
 
 .slides div.on-hover-slide img{
     transform: scale(1);
-    opacity: .5;
+    opacity: .7;
 }
 .slides div a {
     position: absolute;
